@@ -22,6 +22,11 @@ public class HeroRabbit : MonoBehaviour {
 	Animator myAnimator = null;
 
 	public Transform heroParent = null;
+	public static HeroRabbit current = null;
+
+	void Awake () {
+		current = this;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +41,7 @@ public class HeroRabbit : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		// if ate mushroom
+		if (isDead) return;
 		if (isBig) {
 			bigTime -= Time.deltaTime;
 			if (bigTime <= 0) {
@@ -114,10 +120,7 @@ public class HeroRabbit : MonoBehaviour {
 
 	public void die () {
 		myAnimator.SetBool ("die", true);
-
-		LevelController.current.onRabbitDeath (this);
-
-		restore ();
+		isDead = true;
 	}
 
 	public void restore () {

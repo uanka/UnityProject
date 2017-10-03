@@ -10,7 +10,8 @@ public class Collectable : MonoBehaviour {
 //		if (!this.hideAnimation) {
 			HeroRabbit rabbit = collider.GetComponent<HeroRabbit> ();
 			if (rabbit != null) {
-				this.OnRabbitHit (rabbit);
+				if (!rabbit.isDead) 
+					this.OnRabbitHit (rabbit);
 			}
 //		}
 	}

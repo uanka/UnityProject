@@ -21,10 +21,17 @@ public class LevelController : MonoBehaviour {
 	}
 	public void onRabbitDeath (HeroRabbit rabbit) {
 		//При смерті кролика повертаємо на початкову позицію
-		rabbit.isDead = true;
-		rabbit.transform.position = this.startPosition;
+		rabbit.die ();
+		StartCoroutine (returnRabbit (rabbit));
 	}
 
+	IEnumerator returnRabbit (HeroRabbit rabbit) {
+		yield return new WaitForSeconds (1);
+		rabbit.restore ();
+		rabbit.transform.position = this.startPosition;
+
+	}
+		
 	public void addCoins (int coin) {
 		this.coins += coin;
 	}
