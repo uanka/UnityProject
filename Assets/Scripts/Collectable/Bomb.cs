@@ -9,7 +9,7 @@ public class Bomb : Collectable {
 		if (rabbit.isBig) {
 			rabbit.bigTime = 0;
 		} else {
-			rabbit.die ();
+			LevelController.current.onRabbitDeath(rabbit);
 		}
 
 		this.CollectedHide ();

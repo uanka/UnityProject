@@ -33,8 +33,8 @@ public class HeroRabbit : MonoBehaviour {
 		myBody = this.GetComponent<Rigidbody2D> ();
 		myBodyRenderer = this.GetComponent<SpriteRenderer> ();
 		myAnimator = this.GetComponent<Animator> ();
-
-		LevelController.current.setStartPosition (this.transform.position);
+		if (LevelController.current)
+			LevelController.current.setStartPosition (this.transform.position);
 		this.heroParent = this.transform.parent;
 	}
 	
