@@ -8,5 +8,6 @@ public class MyButton : MonoBehaviour {
 
 	public void _onClick() {
 		this.signalOnClick.Invoke ();
+		Debug.Log ("OnClick");
 	}
 }

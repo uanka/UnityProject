@@ -30,7 +30,8 @@ public class OrcGreen : Orc {
 		Vector3 orc_pos = this.transform.position;
 		Vector3 rabbit_pos = HeroRabbit.current.transform.position;
 
-		if (Mathf.Abs (orc_pos.x - rabbit_pos.x) < 0.3f)
-			this.orcAnimator.SetTrigger ("attack");
+		if (Mathf.Abs (orc_pos.x - rabbit_pos.x) < 1f)
+			if (HeroRabbit.current.isDead) 
+				this.orcAnimator.SetTrigger ("attack");
 	}
 }

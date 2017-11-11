@@ -120,11 +120,15 @@ public class HeroRabbit : MonoBehaviour {
 
 	public void die () {
 		myAnimator.SetBool ("die", true);
+		this.GetComponent<BoxCollider2D> ().enabled = false;
+		this.myBody.isKinematic = true;
 		isDead = true;
 	}
 
 	public void restore () {
 		myAnimator.SetBool ("die", false);
+		this.GetComponent<BoxCollider2D> ().enabled = true;
+		this.myBody.isKinematic = false;
 		isDead = false;
 	}
 	static void SetNewParent(Transform obj, Transform new_parent) {

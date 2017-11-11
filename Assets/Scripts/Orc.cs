@@ -104,7 +104,7 @@ public class Orc : MonoBehaviour {
 	void orcDie () {
 		this.orcAnimator.SetBool ("die", true);
 		this.isDead = true;
-		this.GetComponent<PolygonCollider2D> ().enabled = false;
+		this.GetComponent<BoxCollider2D> ().enabled = false;
 		this.orcBody.isKinematic = true;
 		StartCoroutine (hideMeLater ());
 	}

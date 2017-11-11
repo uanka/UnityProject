@@ -15,7 +15,7 @@ Platform assembly: D:\GameDev\UnityProject\hungryrabbit_Data\Managed\UnityEngine
 Loading D:\GameDev\UnityProject\hungryrabbit_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\GameDev\UnityProject\hungryrabbit_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading D:\GameDev\UnityProject\hungryrabbit_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.528 seconds
+- Completed reload, in  0.295 seconds
 Platform assembly: D:\GameDev\UnityProject\hungryrabbit_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\GameDev\UnityProject\hungryrabbit_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
@@ -23,6 +23,40 @@ desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.240239 ms
+UnloadTime: 4.573979 ms
+Hello from MainMenuController
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+onPlay
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+onPlay
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+OnClick
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.186257 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 662.
+Total: 0.537108 ms (FindLiveObjects: 0.050175 ms CreateObjectMapping: 0.045614 ms MarkObjects: 0.342107 ms  DeleteObjects: 0.098641 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.982989 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 662.
+Total: 0.394564 ms (FindLiveObjects: 0.047324 ms CreateObjectMapping: 0.045614 ms MarkObjects: 0.293642 ms  DeleteObjects: 0.007412 ms)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.480755 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 934.
+Total: 0.613513 ms (FindLiveObjects: 0.059298 ms CreateObjectMapping: 0.053026 ms MarkObjects: 0.460704 ms  DeleteObjects: 0.039912 ms)
+
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 28cc -> priority: 1 
+  Thread -> id: 2590 -> priority: 1 

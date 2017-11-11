@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class LevelController : MonoBehaviour {
 	public UILabel coinsLabel;
 	public UILabel fruitsLabel;
 
+
+	LifesController lifesController;
+	CrystalsController crystalController;
 
 	int coins = 0;
 	int fruits = 0;
@@ -20,6 +24,8 @@ public class LevelController : MonoBehaviour {
 		current = this;
 		coinsLabel = UIRoot.FindObjectsOfType<UILabel> ()[1];
 		fruitsLabel = UIRoot.FindObjectOfType<UILabel> ();
+		lifesController = UIRoot.FindObjectOfType<LifesController> ();
+		crystalController = UIRoot.FindObjectOfType<CrystalsController> ();
 	}
 
 	Vector3 startPosition;
@@ -31,18 +37,21 @@ public class LevelController : MonoBehaviour {
 		//При смерті кролика повертаємо на початкову позицію
 		rabbit.die ();
 		lifes--;
+		lifesController.die ();
 		//chane amount iof lifes on screen
 
 		if (lifes != 0)
 			StartCoroutine (returnRabbit (rabbit));
+		else
+			SceneManager.LoadScene ("ChooseLevel");
 			
 	}
 
 	IEnumerator returnRabbit (HeroRabbit rabbit) {
 		yield return new WaitForSeconds (1);
-		rabbit.restore ();
-		rabbit.transform.position = this.startPosition;
 
+		rabbit.transform.position = this.startPosition;
+		rabbit.restore ();
 	}
 		
 	public void addCoins (int coin) {
@@ -55,8 +64,9 @@ public class LevelController : MonoBehaviour {
 		fruitsLabel.text = fruits + "/" + maxfruits;
 	}
 
-	public void addCrystal (HeroRabbit rabbit) {
+	public void addCrystal (HeroRabbit rabbit, CrystalColour colour) {
 		this.startPosition = rabbit.transform.position;
+		crystalController.addColour (colour);
 	}
 
 	public int getCoins () {
