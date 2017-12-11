@@ -5,9 +5,17 @@ using UnityEngine;
 public class HeroFollow : MonoBehaviour {
 
 	public HeroRabbit rabbit;
+	public AudioClip music = null;
+	AudioSource musicSource = null;
+
 	// Use this for initialization
 	void Start () {
-		
+		musicSource = gameObject.AddComponent<AudioSource> ();
+		musicSource.clip = music;
+		musicSource.loop = true;
+		if (SoundManager.manager.isMusicOn ()) 
+			//Debug.Log( "Enabled: " + GetComponent<AudioSource> ().enabled);
+			musicSource.Play ();
 	}
 	
 	// Update is called once per frame
@@ -25,5 +33,11 @@ public class HeroFollow : MonoBehaviour {
 		camera_position.y = rabbit_position.y;
 		//Встановлюємо координати камери
 		camera_transform.position = camera_position;
+//		Debug.Log (SoundManager.manager.isMusicOn());
+		if (SoundManager.manager.isMusicOn ())
+			musicSource.Play ();
+		else
+			musicSource.Stop ();
 	}
+
 }

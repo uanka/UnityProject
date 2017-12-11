@@ -181,6 +181,8 @@ MonoBehaviour:
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
   diff: {x: 5, y: 0, z: 0}
+  attackSound: {fileID: 8300000, guid: ece9b14a232f14f48ab9a5e844cb5daf, type: 3}
+  dieSound: {fileID: 8300000, guid: 0da0a61767f664de1a8b3e03d7ca4d4e, type: 3}
   weapon: {fileID: 1098932833732012, guid: 64d1e2a81dc2b8d408d0da803d98f3f4, type: 2}
   minDistanceToAttack: 5
   minIntervalToAttack: 1

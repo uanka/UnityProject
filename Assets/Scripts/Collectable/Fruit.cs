@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Fruit : Collectable {
 
+	public int number = 0;
+	public bool gathered = false;
 	protected override void OnRabbitHit (HeroRabbit rabbit) {
-		LevelController.current.addFruits (1);
-		this.CollectedHide ();
+		if (!gathered) {
+			LevelController.current.addFruits (number);
+			this.CollectedHide ();
+		}
 	}
 }

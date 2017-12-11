@@ -28,7 +28,7 @@ public class Carrot : Collectable {
 	}
 
 	protected override void OnRabbitHit (HeroRabbit rabbit) {
-		rabbit.die ();
+		LevelController.current.onRabbitDeath (rabbit);
 		Destroy (this.gameObject);
 	}
 			

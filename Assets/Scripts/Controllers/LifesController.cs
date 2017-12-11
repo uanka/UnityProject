@@ -12,13 +12,8 @@ public class LifesController : MonoBehaviour {
 	void Start () {
 		lifes = this.GetComponentsInChildren<UI2DSprite> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void die () {
-		lifes [LevelController.current.getLifes ()+1].sprite2D = life_used;
+	public void die (int lifesCount) {
+		lifes [lifesCount].sprite2D = life_used;
 	}
 }

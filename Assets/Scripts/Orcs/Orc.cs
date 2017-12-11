@@ -22,7 +22,11 @@ public class Orc : MonoBehaviour {
 	protected Animator orcAnimator = null;
 
 	bool isDead = false;
-	// Use this for initialization
+
+	public AudioClip attackSound = null;
+	public AudioClip dieSound = null;
+	protected AudioSource soundSource = null;
+
 	void Start () {
 		orcBody = this.GetComponent<Rigidbody2D> ();
 		orcBodyRenderer = this.GetComponent<SpriteRenderer> ();
@@ -31,6 +35,8 @@ public class Orc : MonoBehaviour {
 		pointA = this.transform.position;
 		pointB = pointA + diff;
 
+		soundSource = gameObject.AddComponent<AudioSource> ();
+		soundSource.clip = attackSound;
 	}
 	
 	// Update is called once per frame
@@ -102,6 +108,9 @@ public class Orc : MonoBehaviour {
 	}
 
 	void orcDie () {
+		soundSource.clip = dieSound;
+		if (SoundManager.manager.isSoundOn())
+			soundSource.Play ();
 		this.orcAnimator.SetBool ("die", true);
 		this.isDead = true;
 		this.GetComponent<BoxCollider2D> ().enabled = false;

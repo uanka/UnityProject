@@ -38,7 +38,8 @@ public class OrcBrown : Orc {
 
 		Vector3 rabbit_pos = HeroRabbit.current.transform.position;
 		Vector3 orc_pos = this.transform.position;
-
+		if (SoundManager.manager.isSoundOn())
+			soundSource.Play ();
 		this.orcAnimator.SetTrigger ("attack");
 		GameObject carrot = GameObject.Instantiate (weapon);
 		carrot.transform.position = this.transform.position + Vector3.up * 0.5f;
@@ -62,7 +63,7 @@ public class OrcBrown : Orc {
 		Vector3 orc_pos = this.transform.position;
 		Vector3 rabbit_pos = HeroRabbit.current.transform.position;
 
-		if (Mathf.Abs (orc_pos.x - rabbit_pos.x) < 1f)
+		if (Mathf.Abs (orc_pos.x - rabbit_pos.x) < 0.5f)
 			return 0;
 
 		if (orc_pos.x < rabbit_pos.x)

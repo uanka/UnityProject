@@ -24,6 +24,13 @@ public class HeroRabbit : MonoBehaviour {
 	public Transform heroParent = null;
 	public static HeroRabbit current = null;
 
+	public AudioClip runSound = null;
+	public AudioClip dieSound = null;
+	public AudioClip groundingSound = null;
+	protected AudioSource runSource = null;
+	protected AudioSource dieSource = null;
+	protected AudioSource groundingSource = null;
+
 	void Awake () {
 		current = this;
 	}
@@ -36,6 +43,14 @@ public class HeroRabbit : MonoBehaviour {
 		if (LevelController.current)
 			LevelController.current.setStartPosition (this.transform.position);
 		this.heroParent = this.transform.parent;
+
+		runSource = gameObject.AddComponent<AudioSource> ();
+		runSource.clip = runSound;
+		runSource.loop = true;
+		dieSource = gameObject.AddComponent<AudioSource> ();
+		dieSource.clip = dieSound;
+		groundingSource = gameObject.AddComponent<AudioSource> ();
+		groundingSource.clip = groundingSound;
 	}
 	
 	// Update is called once per frame
@@ -59,6 +74,11 @@ public class HeroRabbit : MonoBehaviour {
 		if (hit) {
 			isGrounded = true;
 			myAnimator.SetBool("jump", false);
+			if (SoundManager.manager.isSoundOn ()) {
+				groundingSource.Play ();
+				runSource.Play ();
+			}
+
 			//Перевіряємо чи ми опинились на платформі
 			if(hit.transform != null
 				&& hit.transform.GetComponent<MovingPlatform>() != null){
@@ -67,6 +87,8 @@ public class HeroRabbit : MonoBehaviour {
 			}
 		} else {
 			isGrounded = false;
+			runSource.Stop ();
+
 			myAnimator.SetBool ("jump", true);
 			//Ми в повітрі відліпаємо під платформи
 			SetNewParent(this.transform, this.heroParent);
@@ -90,6 +112,7 @@ public class HeroRabbit : MonoBehaviour {
 			} else {
 				this.jumpActive = false;
 				this.jumpTime = 0;
+				//groundingSource.Play ();
 			}
 		}
 			
@@ -98,11 +121,16 @@ public class HeroRabbit : MonoBehaviour {
 
 		if (Mathf.Abs (value) > 0) {
 			myAnimator.SetBool ("run", true);
+			if ((isGrounded && !jumpActive) && SoundManager.manager.isSoundOn())
+				runSource.Play ();
+
 			Vector2 vel = myBody.velocity;
 			vel.x = value * speed;
 			myBody.velocity = vel;
 		} else {
 			myAnimator.SetBool ("run", false);
+			runSource.Stop ();
+
 		}
 		SpriteRenderer sr = GetComponent<SpriteRenderer>();
 		if (value < 0) {
@@ -119,6 +147,8 @@ public class HeroRabbit : MonoBehaviour {
 	}
 
 	public void die () {
+		if (SoundManager.manager.isSoundOn())
+		dieSource.Play ();
 		myAnimator.SetBool ("die", true);
 		this.GetComponent<BoxCollider2D> ().enabled = false;
 		this.myBody.isKinematic = true;

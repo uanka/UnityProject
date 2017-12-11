@@ -550,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400893286}
   - component: {fileID: 400893285}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainMenuController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,6 +569,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 860768016}
+  settingsButton: {fileID: 953038991}
+  settingsPrefab: {fileID: 1717674864197942, guid: 7f11ee20d27b08e448016aaa36930e7f,
+    type: 2}
+  music: {fileID: 8300000, guid: 57a5b2120c2d04fa9bcb5b2e99ee9361, type: 3}
 --- !u!4 &400893286
 Transform:
   m_ObjectHideFlags: 0
@@ -576,7 +580,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 400893284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1559.6442, y: -697.3149, z: 360}
+  m_LocalPosition: {x: 64, y: 16, z: 360}
   m_LocalScale: {x: 360, y: 360, z: 360}
   m_Children: []
   m_Father: {fileID: 1772757603}
@@ -1302,6 +1306,54 @@ Transform:
   m_Father: {fileID: 842482660}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953038991 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114581754026524400, guid: 067ca17acc9a0d341a4fd4f8321f48b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1684611544}
+  m_Script: {fileID: 11500000, guid: 0da6fb8970fbf11498ca14e118b599e1, type: 3}
+--- !u!1001 &1012220328
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1772757603}
+    m_Modifications:
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7f11ee20d27b08e448016aaa36930e7f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1028925582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,11 +1893,11 @@ Prefab:
     - target: {fileID: 114581754026524400, guid: 067ca17acc9a0d341a4fd4f8321f48b1,
         type: 2}
       propertyPath: signalOnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4438580436143462, guid: 067ca17acc9a0d341a4fd4f8321f48b1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4291
+      value: 3690
       objectReference: {fileID: 0}
     - target: {fileID: 4438580436143462, guid: 067ca17acc9a0d341a4fd4f8321f48b1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2179,6 +2231,7 @@ Transform:
   - {fileID: 2055132463}
   - {fileID: 1846743975}
   - {fileID: 400893286}
+  - {fileID: 2064540008}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2243,7 +2296,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 6000
   mHeight: 1000
-  mDepth: 1
+  mDepth: -1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -2528,3 +2581,8 @@ Transform:
   m_PrefabParentObject: {fileID: 4438580436143462, guid: 067ca17acc9a0d341a4fd4f8321f48b1,
     type: 2}
   m_PrefabInternal: {fileID: 85665338}
+--- !u!4 &2064540008 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4750067582636250, guid: 7f11ee20d27b08e448016aaa36930e7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1012220328}

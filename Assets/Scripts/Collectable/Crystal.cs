@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CrystalColour {
-	Red,
-	Green,
-	Blue
-}
-
 public class Crystal : Collectable {
 
 	public CrystalColour colour;

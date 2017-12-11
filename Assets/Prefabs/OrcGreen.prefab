@@ -181,6 +181,8 @@ MonoBehaviour:
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
   diff: {x: 5, y: 0, z: 0}
+  attackSound: {fileID: 8300000, guid: 17ceaa42e8466455b8b6886e78c357f9, type: 3}
+  dieSound: {fileID: 8300000, guid: 0da0a61767f664de1a8b3e03d7ca4d4e, type: 3}
 --- !u!212 &212371769918234494
 SpriteRenderer:
   m_ObjectHideFlags: 1
